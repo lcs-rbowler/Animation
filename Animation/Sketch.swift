@@ -8,6 +8,12 @@ class Sketch : NSObject {
     
     // Position of circle
     var x : Int
+    var dx : Int
+    var y : Int
+    var dy : Int
+    var x2 : Int
+    var y2 : Int
+    var dx2 : Int
     
     // This function runs once
     override init() {
@@ -15,20 +21,60 @@ class Sketch : NSObject {
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
         
-        // Set starting position
-        x = 250
+        // Set starting positions
+        x = 150
+        y = 250
+        x2 = 250
+        y2 = 250
+        
+        
+        // Set the difference for x and y
+        dx = 3
+        dy = 3
+        dx2 = 1
         
     }
     
     // Runs in a loop, forever, to create the animated effect
     func draw() {
         
+        // Clear Background
+        canvas.drawShapesWithFill = true
+        canvas.fillColor = Color.white
+        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
+        
         // Change position
-        x += 1
+        x += dx
+        y += dy
+        x2 += dx2
+        
+        // Check position and bounce back if touching edge
+        if x > 480 {
+            dx = -3
+        }
+        if x < 20 {
+            dx = 3
+        }
+        if y > 480 {
+            dy = -3
+        }
+        if y < 20 {
+            dy = 3
+        }
+        if x2 > 450 {
+            dx2 = -1
+        }
+        if x2 < 50 {
+            dx2 = 1
+        }
         
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        canvas.drawShapesWithFill = false
+        canvas.drawEllipse(centreX: x, centreY: y, width: 100, height: 100)
+        canvas.drawEllipse(centreX: x2, centreY: y2, width: 300, height: 300)
         
+        // Draw the line
+        canvas.drawLine(fromX: x, fromY: y, toX: x2, toY: y2)
     }
     
 }
