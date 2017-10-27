@@ -18,8 +18,8 @@ class Sketch : NSObject {
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position
-        x = 250
-        y = 250
+        x = random(from: 20, toButNotIncluding: 481)
+        y = random(from: 20, toButNotIncluding: 481)
         
         // Set the difference for x and y
         dx = 3
@@ -36,7 +36,7 @@ class Sketch : NSObject {
         
         // Change position
         x += dx
-        y -= dy
+        y += dy
         
         // Check position and bounce back if touching edge
         if x > 480 {
@@ -45,10 +45,10 @@ class Sketch : NSObject {
         if x < 20 {
             dx = 3
         }
-        if y > 450 {
+        if y > 480 {
             dy = -3
         }
-        if y < 50 {
+        if y < 20 {
             dy = 3
         }
         
