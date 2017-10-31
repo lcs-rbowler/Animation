@@ -6,29 +6,45 @@ class Sketch : NSObject {
     //       Therefore, the line immediately below must always be present.
     let canvas : Canvas
     
-    // Position of circle
-    var x : Int
-    
     // This function runs once
     override init() {
         
         // Create canvas object – specify size
-        canvas = Canvas(width: 500, height: 500)
+        canvas = Canvas(width: 800, height: 600)
         
         // Set starting position
-        x = 250
+        canvas.translate(byX: 400, byY: 300)
         
+        // Draw pumpkin stem
+        //??
+        
+        // Draw pumpkin body
+        canvas.borderColor = Color.orange
+        canvas.fillColor = Color.orange
+        canvas.drawEllipse(centreX: 30, centreY: 0, width: 150, height: 200)
+        canvas.drawEllipse(centreX: -30, centreY: 0, width: 150, height: 200)
     }
     
     // Runs in a loop, forever, to create the animated effect
     func draw() {
         
-        // Change position
-        x += 1
+        // Set flame colour
+        let flame = Color.init(hue: random(from: 20, toButNotIncluding: 41), saturation: 100, brightness: 100, alpha: 100)
+      
+        // Set starting position
+        canvas.translate(byX: 400, byY: 300)
         
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        // Remove borders for everything else
+        canvas.drawShapesWithBorders = false
+    
+        // Draw eyes and mouth
+        canvas.fillColor = flame
+        canvas.drawRectangle(centreX: 40, centreY: 30, width: 50, height: 50)
+        canvas.drawRectangle(centreX: -40, centreY: 30, width: 50, height: 50)
         
+        canvas.fillColor = Color.orange
+        canvas.rotate(by: 25)
+        canvas.drawRectangle(centreX: 80, centreY: 10, width: 30, height: 60)
     }
     
 }
