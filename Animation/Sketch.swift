@@ -39,12 +39,12 @@ class Sketch : NSObject {
     
         // Draw eyes and mouth
         canvas.fillColor = flame
-        canvas.drawRectangle(centreX: 40, centreY: 30, width: 50, height: 50)
-        canvas.drawRectangle(centreX: -40, centreY: 30, width: 50, height: 50)
+        canvas.drawRectangle(centreX: 40, centreY: 30, width: 70, height: 50)
+        canvas.drawRectangle(centreX: -40, centreY: 30, width: 70, height: 50)
         
         canvas.fillColor = Color.orange
         canvas.rotate(by: 25)
-        canvas.drawRectangle(centreX: 80, centreY: 10, width: 30, height: 60)
+        canvas.drawRectangle(centreX: 80, centreY: 0, width: 30, height: 70)
     }
     
 }
