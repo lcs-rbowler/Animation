@@ -74,6 +74,7 @@ class Sketch : NSObject {
         canvas.drawEllipse(centreX: x2, centreY: y2, width: 300, height: 300)
         
         // Draw the line
+        canvas.lineColor = Color.red
         canvas.drawLine(fromX: x, fromY: y, toX: x2, toY: y2)
     }
     
