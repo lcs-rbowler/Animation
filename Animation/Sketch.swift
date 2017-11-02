@@ -45,6 +45,12 @@ class Sketch : NSObject {
         canvas.fillColor = Color.orange
         canvas.rotate(by: 25)
         canvas.drawRectangle(centreX: 80, centreY: 0, width: 30, height: 70)
+        canvas.drawRectangle(centreX: 10, centreY: 40, width: 30, height: 70)
+        canvas.rotate(by: -50)
+        canvas.drawRectangle(centreX: 5, centreY: 40, width: 30, height: 70)
+        canvas.drawRectangle(centreX: -75, centreY: 0, width: 40, height: 70)
+        canvas.rotate(by: 25)
+        canvas.drawRectangle(centreX: 15, centreY: 50, width: 20, height: 20)
     }
     
 }
