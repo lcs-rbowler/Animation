@@ -73,9 +73,15 @@ class Sketch : NSObject {
         canvas.drawEllipse(centreX: x, centreY: y, width: 100, height: 100)
         canvas.drawEllipse(centreX: x2, centreY: y2, width: 300, height: 300)
         
+        // Calculate distance between circle centres
+        let distance = sqrt(Double(((x2-x)*(x2-x))+((y2-y)*(y2-y))))
+        
         // Draw the line
-        canvas.lineColor = Color.red
-        canvas.drawLine(fromX: x, fromY: y, toX: x2, toY: y2)
+        if distance <= 200 {
+            canvas.lineColor = Color.red
+            canvas.drawLine(fromX: x, fromY: y, toX: x2, toY: y2)
+        }
+        
     }
     
 }
